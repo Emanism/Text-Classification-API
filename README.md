@@ -95,8 +95,6 @@ You can interact with the API using tools like cURL, Postman, or by sending HTTP
 3. Click on the `/analyze/` endpoint, and then click on "Try it out" to input your text data.
 4. After entering the text data, click on "Execute" to send the request and view the response, which will include the sentiment/emotion analysis results.
 
----
 
-Feel free to explore the code and documentation for more details on how the API works and how to interact with it.
 
 
