@@ -45,7 +45,7 @@ We've containerized our API using Docker for seamless deployment across differen
 Our API utilizes the bert-base-uncased model from the Hugging Face model hub. This model is a fine-tuned version of BERT for general-purpose text classification tasks, offering excellent performance and accuracy across various domains.
 
 # Hugging Face Space Link
-You can access the trained model and associated resources on our Hugging Face Space: Text-Analytics-API-Hugging-Face.
+You can access the trained model and associated resources on our Hugging Face Space:[ Text-classification-fast API](https://huggingface.co/spaces/emanism6/Text-Classification-Fastapi)
 
 # Building and Running the Container
 To build and run the Docker container, follow these simple steps:
