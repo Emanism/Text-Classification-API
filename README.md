@@ -2,31 +2,14 @@
 
 This repository contains code for building a RESTful API using FastAPI to perform text classification (sentiment analysis, emotion classification, etc) using a pre-trained Hugging Face Transformer model. The API is containerized using Docker for easy deployment.
 
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Dependencies](#dependencies)
-- [Models Used](#models-used)
-- [Code Explanation](#code-explanation)
-- [File Structure](#file-structure)
-- [FastAPI Integration](#fastapi-integration)
-- [Dockerization](#dockerization)
-- [Hugging Face Model Details](#hugging-face-model-details)
-- [Hugging Face Space Link](#hugging-face-space-link)
-- [Building and Running the Container](#building-and-running-the-container)
-- [Interacting with the API](#interacting-with-the-api)
-
----
 
 ## Overview
 
-The main objective of this project is to develop a robust and scalable API for text classification tasks using FastAPI, Docker, and Hugging Face Transformers. The API allows users to submit text data and receive sentiment or emotion analysis results in real-time.
+The main objective of this project is to develop a robust and scalable API for text classification tasks using FastAPI, Docker, and Hugging Face Transformers. The API allows users to submit text data and receive sentiment or emotion analysis results in real time.
 
 ---
 
-## Dependencies
+## Prerequisites and Dependencies
 
 The project relies on the following dependencies:
 
@@ -39,7 +22,7 @@ The project relies on the following dependencies:
 
 ---
 
-## Code Explanation
+## Codebase
 
 The main components of the code include:
 
@@ -50,7 +33,7 @@ The main components of the code include:
 
 ---
 
-## FastAPI Integration
+## FastAPI Integration Essentials
 
 FastAPI is used to develop the RESTful API with the following endpoints:
 
@@ -59,13 +42,13 @@ FastAPI is used to develop the RESTful API with the following endpoints:
 
 ---
 
-## Dockerization
+## Containerization with Docker
 
 The project is containerized using Docker for easy deployment. The Dockerfile defines the environment and instructions for building the Docker image, including installing dependencies and running the FastAPI application.
 
 ---
 
-## Hugging Face Model Details
+## Hugging Face Model 
 
 The API utilizes the `distilbert-base-multilingual-cased-sentiments-student` model from the Hugging Face model hub. This model is a distilled version of the DistilBERT model trained for sentiment analysis tasks across multiple languages.
 
@@ -73,18 +56,21 @@ The API utilizes the `distilbert-base-multilingual-cased-sentiments-student` mod
 
 ## Hugging Face Space Link
 
-The trained model and associated resources are hosted on the following Hugging Face Space: [FastAPI-Docker-Huggingface-Text_Sentiment_app](https://huggingface.co/spaces/HussainM899/FastAPI-Docker-Huggingface-Text_Sentiment_app).
+The trained model and associated resources are hosted on the following Hugging Face Space: https://huggingface.co/spaces/emanism6/Text-Classification-Fastapi
 
 ---
 
-## Building and Running the Container
 
-To build and run the Docker container, follow these steps:
+## Containerization: Building and Deployment
+To initiate the construction and deployment of the Docker container, adhere to the subsequent steps:
 
-1. Ensure you have Docker installed on your system.
-2. Clone this repository to your local machine.
-3. Navigate to the project directory in your terminal.
-4. Run the following command to build the Docker image:
+**Confirm Docker Installation**: Verify that Docker is installed on your system to proceed with containerization seamlessly.
+
+**Repository Cloning**: Clone the repository to your local machine, ensuring access to the essential files and configurations required for container creation.
+
+**Directory Navigation**: Navigate to the project directory within your terminal environment, facilitating easy access to project resources and files necessary for containerization.
+
+**Build Docker Image**: Execute the following command in your terminal to initiate the Docker image's construction, incorporating dependencies and configurations defined within the Dockerfile:
 
 ```
 docker build -t fastapi-test-sentiment-api-0.1.2 .
