@@ -1,0 +1,8 @@
+fastapi
+pydantic
+transformers
+pyngrok
+nest-asyncio
+uvicorn
+nltk
+tensorflow==2.16.1

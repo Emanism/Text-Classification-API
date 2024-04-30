@@ -1,75 +1,116 @@
-# Text Analytics API with FastAPI, Docker, and Hugging Face Transformers
+# Text Classification API with FastAPI, Docker, and Hugging Face Transformers
 
-Welcome to the Text Analytics API repository! This project provides a robust and scalable RESTful API for text classification tasks using FastAPI, Docker, and Hugging Face Transformers. With this API, you can easily perform sentiment analysis, emotion classification, and more on textual data. Let's dive into the details!
+This repository contains code for building a RESTful API using FastAPI to perform text classification (sentiment analysis, emotion classification, etc) using a pre-trained Hugging Face Transformer model. The API is containerized using Docker for easy deployment.
 
-# Overview
+---
 
-Our primary goal with this project is to empower developers and data scientists with an efficient tool for text analysis. By leveraging FastAPI, Docker, and Hugging Face Transformers, we've created an API that delivers real-time insights into textual data, enabling users to make informed decisions based on sentiment and emotion analysis.
+## Table of Contents
 
-# Dependencies
-To run this project, you'll need the following dependencies:
+- [Overview](#overview)
+- [Dependencies](#dependencies)
+- [Models Used](#models-used)
+- [Code Explanation](#code-explanation)
+- [File Structure](#file-structure)
+- [FastAPI Integration](#fastapi-integration)
+- [Dockerization](#dockerization)
+- [Hugging Face Model Details](#hugging-face-model-details)
+- [Hugging Face Space Link](#hugging-face-space-link)
+- [Building and Running the Container](#building-and-running-the-container)
+- [Interacting with the API](#interacting-with-the-api)
 
-**FastAPI**: A cutting-edge web framework for building APIs with Python, known for its speed and ease of use.
+---
 
-**Transformers**: The Hugging Face library, offering a wide range of pre-trained models for natural language processing (NLP) tasks.
+## Overview
 
-**Pyngrok**: A Python wrapper for ngrok, facilitating the exposure of local servers over public URLs for easy testing and sharing.
+The main objective of this project is to develop a robust and scalable API for text classification tasks using FastAPI, Docker, and Hugging Face Transformers. The API allows users to submit text data and receive sentiment or emotion analysis results in real-time.
 
-**Nest_asyncio**: A library enabling nested asyncio event loops, crucial for running asyncio within other asyncio loops seamlessly.
+---
 
-**NLTK**: The Natural Language Toolkit, providing tools and resources for text processing and analysis tasks.
+## Dependencies
 
-**Pydantic**: A data validation library for Python, ensuring robustness and reliability in handling API input and output.
+The project relies on the following dependencies:
 
-# Code Explanation
-Here's a breakdown of the main components of our code:
+- **FastAPI:** A modern web framework for building APIs with Python.
+- **Transformers:** The Hugging Face library for natural language processing (NLP) tasks, including pre-trained models.
+- **Pyngrok:** A Python wrapper for ngrok, which exposes local servers over public URLs.
+- **Nest_asyncio:** A library for running asyncio nested in other asyncio loops.
+- **NLTK:** The Natural Language Toolkit for text processing tasks.
+- **Pydantic:** A data validation library for Python.
 
-**main.py**: This file houses the core functionality of our FastAPI application, including endpoint definitions, request and response models, and model integration for text classification.
+---
 
-**test.py**: Here, you'll find unit tests for our API endpoints, implemented using FastAPI's TestClient to ensure the reliability and correctness of our API.
+## Code Explanation
 
-**Dockerfile**: Our Dockerfile specifies the environment and instructions for building the Docker image for our FastAPI application, streamlining deployment and portability.
+The main components of the code include:
 
-**requirements.txt**: This file lists all the Python dependencies required by our project, making it easy to install and manage dependencies.
+- **main.py:** This file contains the FastAPI application, including the definition of endpoints, request and response models, and model integration.
+- **test.py:** This file contains unit tests for the API endpoints using FastAPI's TestClient.
+- **Dockerfile:** The Dockerfile defines the environment and instructions for building the Docker image for the FastAPI application.
+- **requirements.txt:** This file lists all the Python dependencies required by the project.
 
-# FastAPI Integration
-Our API leverages FastAPI to provide a RESTful interface with the following endpoints:
+---
 
-**GET /**: A welcome endpoint that redirects users to the Swagger UI page, providing interactive documentation and exploration capabilities.
-**POST /analyze/**: The primary endpoint for text classification tasks, accepting JSON input with a text field and returning sentiment/emotion analysis results in real-time.
+## FastAPI Integration
 
-# Dockerization
-We've containerized our API using Docker for seamless deployment across different environments. Our Dockerfile specifies the environment and instructions for building the Docker image, ensuring consistency and ease of deployment.
+FastAPI is used to develop the RESTful API with the following endpoints:
 
-# Hugging Face Model Details
-Our API utilizes the bert-base-uncased model from the Hugging Face model hub. This model is a fine-tuned version of BERT for general-purpose text classification tasks, offering excellent performance and accuracy across various domains.
+- **GET /:** A welcome endpoint that redirects to the Swagger UI page.
+- **POST /analyze/:** The main endpoint for text classification. It accepts JSON input with a text field and returns the sentiment/emotion analysis results.
 
-# Hugging Face Space Link
-You can access the trained model and associated resources on our Hugging Face Space:[ Text-classification-fast API](https://huggingface.co/spaces/emanism6/Text-Classification-Fastapi)
+---
 
-# Building and Running the Container
-To build and run the Docker container, follow these simple steps:
+## Dockerization
 
-1. Ensure Docker is installed on your system.
+The project is containerized using Docker for easy deployment. The Dockerfile defines the environment and instructions for building the Docker image, including installing dependencies and running the FastAPI application.
+
+---
+
+## Hugging Face Model Details
+
+The API utilizes the `distilbert-base-multilingual-cased-sentiments-student` model from the Hugging Face model hub. This model is a distilled version of the DistilBERT model trained for sentiment analysis tasks across multiple languages.
+
+---
+
+## Hugging Face Space Link
+
+The trained model and associated resources are hosted on the following Hugging Face Space: [FastAPI-Docker-Huggingface-Text_Sentiment_app](https://huggingface.co/spaces/HussainM899/FastAPI-Docker-Huggingface-Text_Sentiment_app).
+
+---
+
+## Building and Running the Container
+
+To build and run the Docker container, follow these steps:
+
+1. Ensure you have Docker installed on your system.
 2. Clone this repository to your local machine.
 3. Navigate to the project directory in your terminal.
-4. Build the Docker image using the following command:
+4. Run the following command to build the Docker image:
 
-**Copy code**
-docker build -t text-analytics-api .
-### Once the image is successfully built, run the container with the following command:
+```
+docker build -t fastapi-test-sentiment-api-0.1.2 .
+```
 
-**Copy code**
-docker run -d -p 8000:8000 text-analytics-api:latest
-Voila! Your API is now up and running at http://localhost:8000.
+5. Once the image is built successfully, run the container with the following command:
 
-# Interacting with the API
-You can interact with our API using various tools, such as cURL, Postman, or by programing HTTP requests. Additionally, you can utilize the Swagger UI provided by FastAPI for easy testing and exploration:
+```
+docker run -d -p 8000:8000 fastapi-test-sentiment-api-0.1.2:latest
+```
 
-1.  Open your web browser and navigate to http://localhost:8000/.
-2.  Explore the Swagger UI interface to discover and interact with the API endpoints.
-3.  Click on the /analyze/ endpoint, then click on "Try it out" to input your text data.
-4.  After entering the text data, click on "Execute" to send the request and view the sentiment/emotion analysis results.
-5.  
-Feel free to explore the code and documentation to better understand how our API works and how you can leverage it for your text classification needs. If you have any questions or feedback, don't hesitate to reach out!
+6. The API will now be accessible at `http://localhost:8000`.
+
+---
+
+## Interacting with the API
+
+You can interact with the API using tools like cURL, Postman, or by sending HTTP requests programmatically. Alternatively, you can use the Swagger UI provided by FastAPI for easy testing and exploration.
+
+1. Open your web browser and navigate to `http://localhost:8000/`.
+2. This will open the Swagger UI interface, where you can explore the API endpoints and submit requests with sample data.
+3. Click on the `/analyze/` endpoint, and then click on "Try it out" to input your text data.
+4. After entering the text data, click on "Execute" to send the request and view the response, which will include the sentiment/emotion analysis results.
+
+---
+
+Feel free to explore the code and documentation for more details on how the API works and how to interact with it.
+
 
